@@ -2,9 +2,9 @@ module Rack
   module OAuth2
     class AccessToken
       include AttrRequired, AttrOptional
-      attr_required :access_token, :token_type
+      attr_required :token_type
       attr_optional :refresh_token, :expires_in, :scope
-      attr_accessor :raw_attributes
+      attr_accessor :raw_attributes, :access_token
       delegate :get, :patch, :post, :put, :delete, to: :httpclient
 
       alias_method :to_s, :access_token
